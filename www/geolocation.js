@@ -77,18 +77,20 @@ var geolocation = {
    * @param {PositionOptions} options     The options for getting the position data. (OPTIONAL)
    */
     getCurrentPosition: function (successCallback, errorCallback, options) {
+
+                console.log("options");
+        console.log(options);
         argscheck.checkArgs('fFO', 'geolocation.getCurrentPosition', arguments);
         options = parseParameters(options);
 
         // Timer var that will fire an error callback if no position is retrieved from native
         // before the "timeout" param provided expires
         var timeoutTimer = {timer: null};
-            console.log("pos");
-            console.log(pos);
-                console.log("options");
-        console.log(options);
+
         
         var win = function (p) {
+                       console.log("p");
+            console.log(p);
             clearTimeout(timeoutTimer.timer);
             if (!(timeoutTimer.timer)) {
                 // Timeout already happened, or native fired error callback for
