@@ -33,6 +33,9 @@ module.exports = {
             var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.geolocation'); // eslint-disable-line no-undef
             console.log("geo");
             console.log(geo);
+            console.log("args");
+            console.log(args);
+
 
             geo.getCurrentPosition(success, error, args);
         };
