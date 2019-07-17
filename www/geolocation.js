@@ -105,6 +105,8 @@ var geolocation = {
                 p.timestamp
             );
             geolocation.lastPosition = pos;
+            
+            console.log(pos);
             successCallback(pos);
         };
         var fail = function (e) {
@@ -118,6 +120,10 @@ var geolocation = {
 
         // Check our cached position, if its timestamp difference with current time is less than the maximumAge, then just
         // fire the success callback with the cached position.
+        console.log("options");
+        console.log(options);
+        console.log("geolocation");
+        console.log(geolocation);
         if (geolocation.lastPosition && options.maximumAge && (((new Date()).getTime() - geolocation.lastPosition.timestamp) <= options.maximumAge)) {
             successCallback(geolocation.lastPosition);
         // If the cached position check failed and the timeout was set to 0, error out with a TIMEOUT error object.
