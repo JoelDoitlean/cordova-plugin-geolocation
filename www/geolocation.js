@@ -105,7 +105,7 @@ var geolocation = {
                 p.timestamp
             );
             geolocation.lastPosition = pos;
-            
+            console.log("pos");
             console.log(pos);
             successCallback(pos);
         };
