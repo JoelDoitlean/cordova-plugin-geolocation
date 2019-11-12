@@ -20,6 +20,7 @@ import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import java.lang.Object;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -30,6 +31,7 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 public class Geolocation extends CordovaPlugin implements OnLocationResultEventListener {
 
@@ -257,8 +259,9 @@ public class Geolocation extends CordovaPlugin implements OnLocationResultEventL
             @Override
             public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
                 // All location settings are satisfied. The client can initialize location requests here.
-                Status status = bundle.getParcelable(EXTRA_RESOLVABLE_EXCEPTION_STATUS); // might have to cast as Status
-                ResolvableApiException resolvable = new ResolvableApiException(status);
+
+                Exception exception = new ResolvableApiException("LOCATION_SETTINGS_ERROR_RESOLVABLE");
+                ResolvableApiException resolvable = (ResolvableApiException) exception;
                 resolvable.startResolutionForResult(this, REQUEST_CHECK_SETTINGS);
                 requestLocationUpdates(locationContext, request);
             }
