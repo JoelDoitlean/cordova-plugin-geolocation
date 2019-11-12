@@ -7,6 +7,7 @@ import android.location.Location;
 import android.support.annotation.NonNull;
 import android.util.SparseArray;
 import android.app.Activity;
+import android.content.Context;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -271,8 +272,8 @@ public class Geolocation extends CordovaPlugin implements OnLocationResultEventL
                 if (e instanceof ResolvableApiException) {
                     // Location settings are not satisfied, but this can be fixed.
                     ResolvableApiException resolvable = (ResolvableApiException) e;
-                    Activity activity = getCurrentActivity();
-                    resolvable.startResolutionForResult(activity, 1001);
+                    Context context = this.cordova.getActivity().getApplicationContext();
+                    resolvable.startResolutionForResult(context, 1001);
                     result = new PluginResult(PluginResult.Status.ERROR, LocationError.LOCATION_SETTINGS_ERROR_RESOLVABLE.toJSON());
                 }
                 else {
