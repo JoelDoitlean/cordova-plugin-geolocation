@@ -259,9 +259,9 @@ public class Geolocation extends CordovaPlugin implements OnLocationResultEventL
             public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
                 // All location settings are satisfied. The client can initialize location requests here.
 
-                Exception exception = new Exception(RESOLUTION_REQUIRED);
+                Exception exception = new Exception(61124);
                 ResolvableApiException resolvable = (ResolvableApiException) exception;
-                resolvable.startResolutionForResult(this, REQUEST_CHECK_SETTINGS);
+                resolvable.startResolutionForResult(this, 9001);
                 requestLocationUpdates(locationContext, request);
             }
         };
