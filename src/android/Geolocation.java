@@ -270,7 +270,8 @@ public class Geolocation extends CordovaPlugin implements OnLocationResultEventL
                 if (e instanceof ResolvableApiException) {
                     // Location settings are not satisfied, but this can be fixed.
                     ResolvableApiException resolvable = (ResolvableApiException) e;
-                    resolvable.startResolutionForResult(this, 1001);
+                    Activity activity = getCurrentActivity();
+                    resolvable.startResolutionForResult(activity, 1001);
                     result = new PluginResult(PluginResult.Status.ERROR, LocationError.LOCATION_SETTINGS_ERROR_RESOLVABLE.toJSON());
                 }
                 else {
