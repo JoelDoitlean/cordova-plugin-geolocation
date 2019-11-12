@@ -6,6 +6,7 @@ import android.Manifest;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.util.SparseArray;
+import android.app.Activity;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
