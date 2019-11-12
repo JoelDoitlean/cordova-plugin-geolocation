@@ -20,7 +20,6 @@ import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import java.lang.Object;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
